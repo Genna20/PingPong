@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- LINKS TO THE STYLESHEETS I USED -->
+	<link rel="stylesheet" type="text/css" href="style4.css">
+	<link rel="stylesheet" type="text/css" href="register.css">
+	<title>Register</title>
+	<link rel = "stylesheet" href= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+	<!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Odibee Sans" rel="stylesheet">
+
+	<!-- My own stylesheet -->
+    <link href="style4.css" rel="stylesheet">
+    <link href="register.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<!-- NAVIGATION MENU -->
+		<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PingPong</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.html">Home</a></li>
+            <li><a class="dropdown-item" href="game.html">Game</a></li>
+            <li><a class="dropdown-item" href="leaderboard.html">Leaderboard </a></li>
+            <li><a class="dropdown-item" href="about.html">About </a></li>
+            <li><a class="dropdown-item" href="help.html">Help</a></li>
+            <li><a class="dropdown-item" href="register.html"> Register</a></li>	
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="login.html">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+</nav>	
+<!-- THIS IS THE CSS I GOT FROM BOOTSTRAP, THIS HELPED ME WITH THE LAYOUT OF THE NAVIGATION -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+<!-- REGISTRATION SECTION -->
+		</header>
+		<h1 style="margin-left: auto; font-size: 50px;"> Registration</h1>
+			<form onsubmit="signup()">
+			Username:<br><input type= "text" name="username" id="username" required placeholder="Enter a username"><br>
+			Email: <br><input type= "email" id="emailID" required placeholder="Enter an email address"><br> &nbsp;  
+			Password: <br><input type="password" id="password" minlength="5"><br> &nbsp; 
+			Confirm Password: <br><input type="password" id="ConfirmPasswordInput"><br> &nbsp;
+			DOB: <br><input type="date"><br> &nbsp; 
+			Gender: <br>
+			<input type="radio" name="gender" value="Male">Male<br>
+			<input type="radio" name="gender" value="Female" >Female<br>
+			<input type="radio" name="gender" value="Other">Other<br> 
+			<button onclick="storeUser()"> Register</button>
+			<input type= "reset">
+			<!-- Results of the registration will be displayed here -->
+			<p id= "Result"></p>
+
+		</form>
+
+		<p id="Result"></p>
+
+<!-- THE LOCAL STORAGE -->
+<script>
+		function signup(e){
+
+			var email = document.getElementById('emailID').value;
+			var username = document.getElementById('username').value;
+			var pass = document.getElementById('password').value;
+
+			var user = {
+				email: email,
+				username: username,
+				password: pass,
+			};
+
+			var json = JSON.stringify(user);
+			localStorage.setItem(username, json);
+			console.log("user added");
+
+    function loginFunc(e){
+      event.preventDefault();
+
+      var username = document.getElementById("username");
+      var pass = document.getElementById("password");
+      var result = document.getElementById("result");
+
+      var user = localStorage.getItem(username);
+      var data = JSON.parse(user);
+      console.log(data);
+
+    }
+}		
+// JAVASCRIPT FOR VALIDATION
+</script>
+
+<div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>5 characters</b></p>
+</div>
+				
+<script>
+var myInput = document.getElementById("password");
+var letter = document.getElementById("letter"); 
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // This will Validate the capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // This will Validate the numbers
+  var numbers = /[0-5]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 5) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+
+}
+
+</script>
+
+<script>
+	// The text will turn green and a checkmark will appear when the requirements are correct
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: '✔';
+}
+</script> 
+
+<center>
+	 <!-- USING THE DIVISION TAG AND LINE BREAK TAG TO BRING DOWN THE FOOTER TO THE BOTTOM OF THE PAGE -->
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+  <div></div>
+  <br>
+    <!-- FOOTER SECTION -->
+<div class="footerIndexText">
+  <hr>
+  <a class="Terms and Conditions" href="termsandcon.html">Terms and Conditions</a>&nbsp;
+  <a>Copyrights All Rights Resevered- Genna</a>
+</div>
+</center>
+</body>
+</html>

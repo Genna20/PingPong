@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="style4.css">
+	<title>Register</title>
+	<link rel = "stylesheet" href= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+	<!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Odibee Sans" rel="stylesheet">
+
+	<!-- My own stylesheet -->
+    <link href="style4.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<!-- NAVIGATION MENU -->
+		<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PingPong</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.html">Home</a></li>
+            <li><a class="dropdown-item" href="game.html">Game</a></li>
+            <li><a class="dropdown-item" href="leaderboard.html">Leaderboard </a></li>
+            <li><a class="dropdown-item" href="about.html">About </a></li>
+            <li><a class="dropdown-item" href="help.html">Help</a></li>
+            <li><a class="dropdown-item" href="register.html"> Register</a></li>	
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+</nav>	
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+<!-- REGISTRATION SECTION -->
+		</header>
+		<h1 style="margin-left: auto; font-size: 50px;"> Registration</h1>
+		<form method="GET">
+			First Name: <input type="text" id="FirstNameInput"><br> &nbsp;
+			<!-- First Name:  <input type="text"><br> &nbsp;  -->
+			Last Name:  <input type="text" id="LastNameInput"><br>&nbsp; 
+			Email Address: <input type= "email" id="EmailInput" required><br> &nbsp;  
+			Password:  <input type="password" id="PasswordInput" minlength="5"><br> &nbsp; 
+			Confirm Password: <input type="password" id="ConfirmPasswordInput"><br> &nbsp;
+			DOB:  <input type="date"><br> &nbsp; 
+			Gender: <br>
+			<input type="radio" name="gender" value="Male">Male<br>
+			<input type="radio" name="gender" value="Female" >Female<br>
+			<input type="radio" name="gender" value="Other">Other<br> 
+			<button onclick="storeUser()"> Register</button>
+			<!-- <input type= "submit" value = "Register"> -->
+			<input type= "reset">
+			<p id= "Result"></p>
+
+		</form>
+
+		<!-- <p id="Result"></p> -->
+		<script>
+			function storeUser(){
+				var usrObject = {};
+				usrObject.text = document.getElementById("FirstNameInput").value;
+				usrObject.text = document.getElementById("LastNameInput").value;
+				usrObject.text = document.getElementById("EmailInput").value;
+				usrObject.text = document.getElementById("PasswordInput").value;
+				usrObject.text = document.getElementById("ConfirmPasswordInput").value;
+
+				// STORE USER INFORMATION
+				localStorage[usrObject.email]= JSON.stringify(usrObject);
+
+				document.getElementById("Result").innerHTML = "<b>Registration successful.</b>";
+			}
+		</script>
+		
+ <!-- <body onload="showName()">
+        <h1 id="Header">Welcome!</h1>
+        <p id="inputPara">
+            Name: <input type="text" id="nameInput">
+            <button onclick="storeName()">Remember Me</button>
+        </p>
+        <p>
+            <button onclick="clearStorage()">Clear Storage</button>
+        </p>
+        <script>
+            let header = document.getElementById("Header");
+
+            //Displays the user's name if it has been set.
+            function showName(){
+                if(localStorage.usrName != undefined)
+                    header.innerHTML = "Hello " + localStorage.usrName;
+            }
+            //Stores name when user clicks button
+            function storeName(){
+                let name = document.getElementById("nameInput").value;
+                header.innerHTML = "Hello " + name;
+                localStorage.usrName = name;//Store name
+           }
+           //Clears local storage
+           function clearStorage(){
+               localStorage.clear();
+               header.innerHTML = "Welcome!";
+           }
+        </script>
+    </body> -->
+		<script>
+			function storeUser(){
+				var usrObject = {};
+				usrObject.first name = document.getElementById("First Name").value;
+				usrObject.email = document.getElementById("Email Address").value;
+				usrObject.password = document.getElementById("Password").value;
+			}
+			
+		</script>
+
+<center>
+<div class="footerIndexText">
+  <hr>
+  <a class="Terms and Conditions" href="termsandcon.html">Terms and Conditions</a>
+  <a class="All Rights Resevered" href="copyright.html">All Rights Reserved</a>
+</div>
+</center>
+</body>
+</html>

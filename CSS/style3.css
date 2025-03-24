@@ -1,0 +1,69 @@
+
+a:hover {
+	color: : blue;
+	text-decoration: underline overline;
+	
+}
+
+body{
+
+	background-color: lightblue; 
+	background-size: cover;
+	font-family: 'Odibee Sans', sans-serif;
+
+	
+}
+
+h1 {
+  font-size: 5rem; 
+  color: #0A0909
+}
+
+h2 {
+	color:  red;
+	text-align: center;
+	border:  5px solid pink;
+	cursor: pointer;
+}
+
+h3 {
+	text-align: center;
+
+}
+
+footer{
+	clear: both;
+	text-align: center;
+
+}
+
+p{
+	font-size: 5rem;
+}
+
+
+h2{
+   color: #2D276E;
+	text-align: center;	
+}
+
+
+/*ABOUT PAGE IMAGE FUNCTION*/
+img {
+	width: 400px;
+	height: 250px;
+	margin: 10px;
+	transition:  all 1s;
+}
+
+img:hover{
+	transform: scale(1.1);
+}
+
+p {
+	line-height:  20px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 100%;
+	font-family: Roboto Condensed;
+}

@@ -1,0 +1,22 @@
+
+a:hover {
+	color: : blue;
+	text-decoration: underline overline;
+	
+}
+
+body{
+
+	background-color: lightblue; 
+	background-size: cover;
+	font-family: 'Odibee Sans', sans-serif;
+	
+}
+
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+	

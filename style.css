@@ -1,0 +1,51 @@
+
+html,
+body {
+  background: url(https://i.pinimg.com/originals/4a/3d/51/4a3d51d81e80f350b972425ca43e500e.png) no-repeat center center fixed; 
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  font-family: 'Odibee Sans', sans-serif;
+
+}
+
+hr {
+  max-width: 65px;
+  border-width: 3px;
+  border-color: #F05F44; 
+}
+
+h1 {
+  font-size: 8rem; 
+  color: #e2dbdb;
+}
+
+h2{
+	colour: #FFFCFC;
+	text-align: center;
+}
+
+.buffer {
+  height: 10rem;
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 300px;
+}
+
+.btn-primary {
+  background-color: #F05F44;
+  border-color: #F05F44; }
+
+.btn-primary:hover {
+  background-color: #ee4b08;
+  border-color: #ee4b08;
+  border-width: 4px;
+  cursor: pointer;
+}
+
+.btn-xl {
+  padding: 1rem 2rem; 
+}
